@@ -7,7 +7,7 @@ let roleList = [
 $(async function () {
     await getUser();
     await infoUser();
-    // await title();
+    await title();
     await getUsers();
     await getDefaultModal();
     await create();
@@ -96,17 +96,17 @@ async function getUser() {
 
 async function title() {
     let temp = ''
-    const h1a1 = document.querySelector('#h1a1');
-    if (isUser) {
+    const topPanelHeader = document.querySelector('#topPanelHeader');
+    if (showUserOrAdminFlag) {
         temp = `
-            <h1 className="h1 a1" id="h1a1">User information page</h1>
+            <div class="fw-bold pt-3 h1" className="topPanelHeader" id="topPanelHeader">User information page</div>
             `;
-        h1a1.innerHTML = temp;
+        topPanelHeader.innerHTML = temp;
     } else {
         temp = `
-            <h1 className="h1 a1" id="h1a1">Admin panel</h1>
+            <div class="fw-bold pt-3 h1" className="topPanelHeader" id="topPanelHeader">Admin panel</div>
             `;
-        h1a1.innerHTML = temp;
+        topPanelHeader.innerHTML = temp;
     }
 }
 
