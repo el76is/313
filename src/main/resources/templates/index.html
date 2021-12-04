@@ -11,9 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
@@ -87,10 +84,7 @@
                 </div>
                 <div class="tab-content border">
                     <div sec:authorize="hasAnyRole('ROLE_ADMIN')" class="tab-pane fade" id="adminTable">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <div class="navbar-brand">All users</div>
-                        </nav>
-                        <div>
+                        <div><h5 class="card-header">All users</h5>
                             <table class="table table-striped" id="tableAllUsers">
                                 <thead>
                                 <tr>
@@ -111,10 +105,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="userTable">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <div class="navbar-brand">About user</div>
-                        </nav>
-                        <div>
+                        <div><h5 class="card-header">About user</h5>
                             <table class="table table-striped" id="tableUser">
                                 <thead>
                                 <tr>
@@ -133,83 +124,92 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade text-center" id="newUser">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <div class="navbar-brand">Add new user</div>
-                        </nav>
-
-                        <form id="addForm">
-
-                            <div class="form-group">
-                                <label for="usernameCreate" class="col-form-label">Username</label>
-                                <input type="text" class="form-control username" id="usernameCreate" required>
+                    <div class="tab-pane fade" id="newUser">
+                        <div><h5 class="card-header">Add new user</h5>
+                            <div class="container-fluid bg-white text-center">
+                                <div class="row">
+                                    <div class="col-4"></div>
+                                        <form id="addForm">
+                                            <div class="form-group">
+                                                <label for="usernameCreate" class="col-form-label">Username</label>
+                                                <input type="text" class="form-control username" id="usernameCreate"
+                                                       required>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="firstNameCreate" class="com-form-label">First Name</label>
+                                                <input type="text" class="form-control" id="firstNameCreate">
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="lastNameCreate" class="com-form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="lastNameCreate">
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="ageCreate" class="com-form-label">Age</label>
+                                                <input type="number" class="form-control" id="ageCreate">
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="emailCreate" class="com-form-label">Email</label>
+                                                <input type="email" class="form-control" id="emailCreate" required>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="passwordCreate" class="com-form-label">Password</label>
+                                                <input type="password" class="form-control" id="passwordCreate"
+                                                       required>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="rolesCreate" class="com-form-label">Role:</label>
+                                                <select multiple id="rolesCreate" class="form-control select" size="2"
+                                                        required>
+                                                    <option value="ROLE_ADMIN">ADMIN</option>
+                                                    <option value="ROLE_USER" selected>USER</option>
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <button class="btn btn-success" id="addUser" type="submit">Add new
+                                                    user
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="firstNameCreate" class="com-form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstNameCreate">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="lastNameCreate" class="com-form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastNameCreate">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="ageCreate" class="com-form-label">Age</label>
-                                <input type="number" class="form-control" id="ageCreate">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="emailCreate" class="com-form-label">Email</label>
-                                <input type="email" class="form-control" id="emailCreate" required>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="passwordCreate" class="com-form-label">Password</label>
-                                <input type="password" class="form-control" id="passwordCreate" required>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="rolesCreate" class="com-form-label">Role:</label>
-                                <select multiple id="rolesCreate" class="form-control select" size="2" required>
-                                    <option value="ROLE_ADMIN">ADMIN</option>
-                                    <option value="ROLE_USER" selected>USER</option>
-                                </select>
-                            </div>
-                        </form>
-                        <br>
-                        <div class="p2">
-                            <button class="btn btn-success" id="addUser" type="submit">Add new user</button>
                         </div>
-
                     </div>
 
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
-        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="someDefaultModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="someDefaultModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body">
-                    </div>
-
-                    <div class="modal-footer">
-                    </div>
-
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+
+                <div class="modal-body">
+                </div>
+
+                <div class="modal-footer">
+                </div>
+
             </div>
         </div>
+    </div>
     </div>
 </main>
 </body>

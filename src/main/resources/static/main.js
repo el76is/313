@@ -221,23 +221,7 @@ async function create() {
             addUserForm.find('#ageCreate').val('');
             addUserForm.find('#emailCreate').val('');
             addUserForm.find(checkedRoles()).val('');
-            let alert = `<div class="alert alert-success alert-dismissible fade show col-12" role="alert" id="successMessage">
-                         User create successful!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>`;
-            addUserForm.prepend(alert);
             $('.nav-tabs a[href="#adminTable"]').tab('show');
-        } else {
-            let body = await response.json();
-            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="messageError">
-                            ${body.info}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>`;
-            addUserForm.prepend(alert);
         }
     });
 }
@@ -340,15 +324,6 @@ async function update(modal, id) {
         if (response.ok) {
             await getUsers();
             modal.modal('hide');
-        } else {
-            let body = await response.json();
-            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="messageError">
-                            ${body.info}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>`;
-            modal.find('.modal-body').prepend(alert);
         }
     })
 }
@@ -420,15 +395,6 @@ async function deleteUser(modal, id) {
         if (response.ok) {
             await getUsers();
             modal.modal('hide');
-        } else {
-            let body = await response.json();
-            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="messageError">
-                            ${body.info}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>`;
-            modal.find('.modal-body').prepend(alert);
         }
     })
 }
