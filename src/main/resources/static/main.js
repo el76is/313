@@ -259,41 +259,41 @@ async function update(modal, id) {
     user.then(user => {
         let bodyForm = `
             <form class="form-group text-center" id="editUser">
-               <div class="form-group">
+                <div class="form-group">
                     <label for="userId" class="col-form-label">ID</label>
                     <input type="text" class="form-control username" id="userId" value="${user.userId}" readonly>
-               </div>
-                   
-               <div class="form-group">
+                </div>
+                <br>
+                <div class="form-group">
                     <label for="username" class="col-form-label">Username</label>
                     <input type="text" class="form-control username" id="username" value="${user.username}" required>
-               </div>
-
-                <div class="form-group">
-                    <label for="password" class="com-form-label">Password</label>
-                    <input type="password" class="form-control" id="password" field="${user.password}" required>
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="firstName" class="com-form-label">First Name</label>
                     <input type="text" class="form-control" id="firstName" value="${user.firstName}">
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="lastName" class="com-form-label">Last Name</label>
                     <input type="text" class="form-control" id="lastName" value="${user.lastName}">
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="age" class="com-form-label">Age</label>
                     <input type="number" class="form-control" id="age" value="${user.age}">
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="email" class="com-form-label">Email</label>
                     <input type="text" class="form-control" id="email" value="${user.email}" required>
                 </div>
-                
+                <br>
+                <div class="form-group">
+                    <label for="password" class="com-form-label">Password</label>
+                    <input type="password" class="form-control" id="password" field="${user.password}" required>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="roles" class="com-form-label">Role</label>
                     <select multiple id="roles" size="2" class="form-control" style="max-height: 100px">
@@ -367,30 +367,29 @@ async function deleteUser(modal, id) {
     modal.find('.modal-footer').append(closeButton);
     modal.find('.modal-footer').append(deleteButton);
 
-
     user.then(user => {
         let bodyForm = `
             <form class="form-group text-center" id="deleteUser">
-               <div class="form-group">
+                <div class="form-group">
                     <label for="userId" class="col-form-label">ID</label>
                     <input type="text" class="form-control username" id="userId" value="${user.userId}" readonly>
-               </div>
-                   
-               <div class="form-group">
+                </div>
+                <br>
+                <div class="form-group">
                     <label for="username" class="col-form-label">Username</label>
                     <input type="text" class="form-control username" id="username" value="${user.username}" readonly>
-               </div>
-
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="name" class="com-form-label">First Name</label>
                     <input type="text" class="form-control" id="firstName" value="${user.firstName}" readonly>
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="lastName" class="com-form-label">Last Name</label>
                     <input type="text" class="form-control" id="lastName" value="${user.lastName}" readonly>
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="age" class="com-form-label">Age</label>
                     <input type="text" class="form-control" id="age" value="${user.age}" readonly>
@@ -398,20 +397,18 @@ async function deleteUser(modal, id) {
                         Age cannot be empty
                     </div>
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="email" class="com-form-label">Email</label>
                     <input type="text" class="form-control" id="email" value="${user.email}"  readonly>
                 </div>
-                
-                 <div class="form-group">
+                <br>
+                <div class="form-group">
                 <label for="roles" class="com-form-label">Role:</label>
                 <select id="roles" class="form-control" readonly>
                 <option>${user.roles.map(role => " " + role.role.substr(5))}</option>
-            })}</option>
                 </select>
-            </div>
-
+                </div>
             </form>
         `;
         modal.find('.modal-body').append(bodyForm);
